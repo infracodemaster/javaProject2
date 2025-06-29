@@ -9,23 +9,25 @@ pipeline{
             steps {
                 cleanWs()
             }
-
         }
         stage("Checkout from SCM"){
             steps {
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/infracodemaster/javaProject2.git'
             }
-
         }
         stage("Build Application"){
             steps {
                 sh "mvn clean package"
             }
-
         }
-
+        stage("Buid Test"){
+            steps{
+                script{
+                    sh "mvn test"
+                }
+            }
+        }
     }
-
     post {
         failure {
             emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
