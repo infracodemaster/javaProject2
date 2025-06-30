@@ -27,5 +27,16 @@ pipeline{
                 }
             }
         }
+        stage("Sonarqube Analysis") {
+            steps {
+                script {
+                    withSonarQubeEnv(credentialsId: 'sonar-secret') {
+                        sh "mvn sonar:sonar"
+                    }
+                }
+            }
+
+        }
+        
     }
 }
