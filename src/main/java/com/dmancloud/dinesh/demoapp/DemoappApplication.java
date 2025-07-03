@@ -16,7 +16,5 @@ public class DemoappApplication {
         String password = "admin123"; // hardcoded password
         System.out.println("Using hardcoded password: " + password);
     }
-     public static void logPassword(String password) {
-        LOGGER.log(Level.INFO, "User password is: {0}", password); // Logging sensitive data
-    }
+    
 }
