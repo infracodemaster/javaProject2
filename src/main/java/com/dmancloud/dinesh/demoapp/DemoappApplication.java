@@ -12,4 +12,8 @@ public class DemoappApplication {
     public void addNuber(int x, int y){
         int z= x+y;
     }
+      public static void useHardcodedCredentials() {
+        String password = "admin123"; // hardcoded password
+        System.out.println("Using hardcoded password: " + password);
+    }
 }
