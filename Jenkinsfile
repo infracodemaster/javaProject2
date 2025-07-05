@@ -52,28 +52,6 @@ pipeline{
                     }
                 }
             }
-         stage("Nexuxs Upload") {
-            steps {
-                script {
-                      nexusArtifactUploader artifacts: [
-                            [
-                                artifactId: 'demoapp', 
-                                classifier: '', 
-                                file: 'target/demoapp', 
-                                type: 'jar'
-                            ]], 
-                            credentialsId: 'nexus-secret', 
-                            groupId: 'com.dmancloud.dinesh', 
-                            nexusUrl: '74.225.245.251:8081', 
-                            nexusVersion: 'nexus3', 
-                            protocol: 'http', 
-                            repository: 'javaapp-relese', 
-                            version: '1.0.0'
-                    }
-                }
-            }    
         }
-        
-        
     }
 
