@@ -50,7 +50,7 @@ pipeline{
                             [
                                 artifactId: 'demoapp', 
                                 classifier: '', 
-                                file: 'target/demoapp', 
+                                file: 'target/demoapp-1.0.0.jar', 
                                 type: 'jar'
                             ]], 
                             credentialsId: 'nexus-secret', 
