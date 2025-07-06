@@ -60,7 +60,7 @@ pipeline{
                     echo "Artifact ID: ${pom.artifactId}"
                     echo "Version: ${pom.version}"
                     echo "Packaging: ${pom.packaging}"
-                    version = ${pom.version}
+                    version = pom.version
                     nexusArtifactUploader artifacts: [
                             [
                                 artifactId: 'demoapp', 
