@@ -6,7 +6,7 @@ pipeline{
     }
     environment {
         APP_NAME = "demoapp"
-        RELEASE = "1.0.0"
+        RELEASE = "1.0.2"
         DOCKER_USER = "danish880"
         DOCKER_PASS = 'dockerhub'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
@@ -32,7 +32,6 @@ pipeline{
             steps{
                 script{
                     sh "mvn test"
-                    
                 }
             }
         }
