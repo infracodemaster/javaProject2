@@ -50,7 +50,7 @@ pipeline{
                             [
                                 artifactId: 'demoapp', 
                                 classifier: '', 
-                                file: 'target/demoapp-1.0.1.jar', 
+                                file: 'target/demoapp-1.0.0.jar', 
                                 type: 'jar'
                             ]], 
                             credentialsId: 'nexus-secret', 
@@ -59,7 +59,7 @@ pipeline{
                             nexusVersion: 'nexus3', 
                             protocol: 'http', 
                             repository: 'javaapp-relese', 
-                            version: '1.0.1'
+                            version: '1.0.0'
 
                     }
                 }
