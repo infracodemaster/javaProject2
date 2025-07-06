@@ -32,11 +32,7 @@ pipeline{
             steps{
                 script{
                     sh "mvn test"
-                    pom = readMavenPom file: 'pom.xml'
-                    echo "Group ID: ${pom.groupId}"
-                    echo "Artifact ID: ${pom.artifactId}"
-                    echo "Version: ${pom.version}"
-                    echo "Packaging: ${pom.packaging}"
+                    
                 }
             }
         }
@@ -59,6 +55,12 @@ pipeline{
         stage("Nexus") {
             steps {
                 script {
+                    pom = readMavenPom file: 'pom.xml'
+                    echo "Group ID: ${pom.groupId}"
+                    echo "Artifact ID: ${pom.artifactId}"
+                    echo "Version: ${pom.version}"
+                    echo "Packaging: ${pom.packaging}"
+                    version = ${pom.version}
                     nexusArtifactUploader artifacts: [
                             [
                                 artifactId: 'demoapp', 
@@ -72,7 +74,7 @@ pipeline{
                             nexusVersion: 'nexus3', 
                             protocol: 'http', 
                             repository: 'javaapp-relese', 
-                            version: '1.0.0'
+                            version: version
                     }
                 }
             }
@@ -84,7 +86,6 @@ pipeline{
                         docker_image.push("${IMAGE_TAG}")
                         docker_image.push('latest')
                     }
-                    
                 }
             }
         }
