@@ -11,7 +11,6 @@ pipeline{
         DOCKER_PASS = 'dockerhub'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
-
     }
     stages{
         stage("Cleanup Workspace"){
@@ -33,6 +32,11 @@ pipeline{
             steps{
                 script{
                     sh "mvn test"
+                    def pom = readMavenPom file: 'pom.xml'
+                    echo "Group ID: ${pom.groupId}"
+                    echo "Artifact ID: ${pom.artifactId}"
+                    echo "Version: ${pom.version}"
+                    echo "Packaging: ${pom.packaging}"
                 }
             }
         }
@@ -85,5 +89,6 @@ pipeline{
                 }
             }
         }
+
     }
 }
