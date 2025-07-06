@@ -59,7 +59,7 @@ pipeline{
                             nexusVersion: 'nexus3', 
                             protocol: 'http', 
                             repository: 'javaapp-relese', 
-                            version: '1.0.0'
+                            version: '1.0.1'
 
                     }
                 }
