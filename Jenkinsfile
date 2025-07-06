@@ -32,7 +32,7 @@ pipeline{
             steps{
                 script{
                     sh "mvn test"
-                    def pom = readMavenPom file: 'pom.xml'
+                     pom = readMavenPom file: 'pom.xml'
                     echo "Group ID: ${pom.groupId}"
                     echo "Artifact ID: ${pom.artifactId}"
                     echo "Version: ${pom.version}"
